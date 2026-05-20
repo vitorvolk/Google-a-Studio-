@@ -1,0 +1,24 @@
+{
+  "short_name": "PCP App",
+  "name": "PCP Micro-App",
+  "description": "Controle de Produção & Materiais - Planejamento Industrial",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#E4E3E0",
+  "theme_color": "#141414",
+  "display": "standalone",
+  "orientation": "portrait"
+}

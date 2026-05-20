@@ -1,0 +1,55 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Catch-all default deny rules
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidCalculation(data) {
+      return data.keys().hasAll(['maquina', 'horasLiquidas', 'produtoCod', 'produtoNome', 'totalPecas', 'paletesTampas', 'createdAt'])
+        && data.keys().size() <= 13
+        && data.maquina is number
+        && (data.maquina == 1001 || data.maquina == 1003 || data.maquina == 1004)
+        && data.horasLiquidas is number
+        && data.horasLiquidas > 0
+        && data.horasLiquidas < 1000
+        && data.produtoCod is string
+        && data.produtoCod.size() > 0
+        && data.produtoCod.size() <= 64
+        && data.produtoNome is string
+        && data.produtoNome.size() > 0
+        && data.produtoNome.size() <= 128
+        && data.totalPecas is number
+        && data.totalPecas >= 0
+        && data.paletesTampas is number
+        && data.paletesTampas >= 0
+        && data.createdAt == request.time
+        && (!('id' in data) || (data.id is string && data.id.size() <= 128 && isValidId(data.id)))
+        && (!('seloCod' in data) || (data.seloCod is string && data.seloCod.size() <= 64))
+        && (!('seloNome' in data) || (data.seloNome is string && data.seloNome.size() <= 128))
+        && (!('metrosNecessarios' in data) || data.metrosNecessarios is number)
+        && (!('paletesSelo' in data) || data.paletesSelo is number)
+        && (!('hasWarning' in data) || data.hasWarning is bool);
+    }
+
+    match /calculations/{calculationId} {
+      allow read: if true;
+      allow create: if isValidId(calculationId) && isValidCalculation(incoming());
+      allow delete: if true; // Operators can clear history, though they can also be restricted if authentication is setup.
+    }
+  }
+}

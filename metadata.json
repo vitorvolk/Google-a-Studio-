@@ -1,0 +1,6 @@
+{
+  "name": "Calculadora de PCP",
+  "description": "Calculadora de insumos de PCP para dimensionar e auditar tampas e bobinas de selo na linha de produção, com histórico local ou em nuvem sincronizado no Firebase.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

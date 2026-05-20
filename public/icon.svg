@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="512" height="512" fill="#141414" />
+  <!-- Inner Frame -->
+  <rect x="32" y="32" width="448" height="448" fill="none" stroke="#E4E3E0" stroke-width="8" />
+  <!-- stylized logo (gear + calculator screen) -->
+  <g transform="translate(256, 256)">
+    <!-- Gear outer teeth -->
+    <path d="M-80,-20 L-100,-20 L-100,20 L-80,20 L-68,48 L-82,62 L-54,90 L-40,76 L-12,84 L-12,104 L28,104 L28,84 L56,76 L70,90 L98,62 L84,48 L96,20 L116,20 L116,-20 L96,-20 L84,-48 L98,-62 L70,-90 L56,-76 L28,-84 L28,-104 L-12,-104 L-12,-84 L-40,-76 L-54,-90 L-82,-62 L-68,-48 Z" fill="#E4E3E0" stroke="#141414" stroke-width="6"/>
+    <!-- Gear center cutout -->
+    <circle cx="0" cy="0" r="50" fill="#141414" />
+    
+    <!-- Calculator panel or accent icon inside -->
+    <rect x="-30" y="-30" width="60" height="60" fill="#D4442E" rx="4" />
+    <!-- Calculator details -->
+    <rect x="-20" y="-20" width="40" height="15" fill="#141414" />
+    <circle cx="-12" cy="15" r="4" fill="#E4E3E0" />
+    <circle cx="0" cy="15" r="4" fill="#E4E3E0" />
+    <circle cx="12" cy="15" r="4" fill="#E4E3E0" />
+  </g>
+  <!-- Technical text in bottom corner -->
+  <text x="48" y="440" font-family="'Courier New', Courier, monospace" font-size="28" font-weight="900" fill="#D4442E">PCP</text>
+  <text x="360" y="440" font-family="'Courier New', Courier, monospace" font-size="28" font-weight="900" fill="#E4E3E0">V1.2</text>
+</svg>

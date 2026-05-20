@@ -1,0 +1,79 @@
+{
+  "entities": {
+    "calculation": {
+      "title": "PCP Calculation Log",
+      "description": "Log of lid and seal calculations for production planning",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the calculation log"
+        },
+        "maquina": {
+          "type": "number",
+          "description": "Machine identifier (e.g. 1001, 1003, 1004)"
+        },
+        "horasLiquidas": {
+          "type": "number",
+          "description": "Net production hours input by operator"
+        },
+        "produtoCod": {
+          "type": "string",
+          "description": "Product ERP / factory code"
+        },
+        "produtoNome": {
+          "type": "string",
+          "description": "Product commercial name"
+        },
+        "totalPecas": {
+          "type": "number",
+          "description": "Calculated total pieces to produce"
+        },
+        "paletesTampas": {
+          "type": "number",
+          "description": "Calculated pallets of lids required"
+        },
+        "metrosNecessarios": {
+          "type": "number",
+          "description": "Calculated total required meters of seal tape"
+        },
+        "paletesSelo": {
+          "type": "number",
+          "description": "Calculated pallets of seal bobbin required"
+        },
+        "seloCod": {
+          "type": "string",
+          "description": "Seal reference code"
+        },
+        "seloNome": {
+          "type": "string",
+          "description": "Seal name"
+        },
+        "hasWarning": {
+          "type": "boolean",
+          "description": "Is true if the product's seal metersPalete parameter was 1"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp of calculation creation"
+        }
+      },
+      "required": [
+        "maquina",
+        "horasLiquidas",
+        "produtoCod",
+        "produtoNome",
+        "totalPecas",
+        "paletesTampas",
+        "createdAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/calculations/{calculationId}": {
+      "schema": "calculation",
+      "description": "Collection of calculation history logs"
+    }
+  }
+}
