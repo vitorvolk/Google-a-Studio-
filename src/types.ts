@@ -56,6 +56,6 @@ export const SELOS: Record<string, Seal> = {
   nescafe50g: { cod: "020050114", nome: "Selo 50g", metrosPalete: 10800, passoMm: 52 },
   nescafe100g: { cod: "020050115", nome: "Selo 100g", metrosPalete: 9000, passoMm: 62 },
   nescafe200g: { cod: "020050116", nome: "Selo 200g", metrosPalete: 7200, passoMm: 76.5 },
-  nutella140g: { cod: "020050063", nome: "Selo Nutella 140g", metrosPalete: 3780, passoMm: 8 },
+  nutella140g: { cod: "020050063", nome: "Selo Nutella 140g", metrosPalete: 5400, passoMm: 8 },
   nutella350g: { cod: "020050064", nome: "Selo Nutella 350g", metrosPalete: 3780, passoMm: 8 }
 };
